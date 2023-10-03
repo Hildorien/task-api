@@ -15,8 +15,11 @@ export class TaskServiceMongo implements ITaskConnection {
     }
     
     public static async create(connectionString: string): Promise<ITaskConnection> {
+        // ====================================
+        // Wait for mongo service to start when running the app in a dockerize container before initilizing a connection
         const wait = new Promise(r=>setTimeout(r,3000));
         await wait;
+        // ====================================
         const client = await MongoClient.connect(connectionString);
         const db = client.db("taskapp");
         return new TaskServiceMongo(db);

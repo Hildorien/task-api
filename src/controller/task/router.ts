@@ -135,4 +135,16 @@ router.delete(
   },
 );
 
+/**
+ * Delete all tasks
+ */
+router.delete("", async (req: Request, res: Response, next: Function) => {
+  try {
+    await TaskService.getInstance().deleteAllTasks();
+    return res.status(StatusCodes.OK).send();
+  } catch (error: any) {
+    return ServerErrorResponse(res, error);
+  }
+});
+
 export default router;
