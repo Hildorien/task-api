@@ -1,12 +1,16 @@
 {
 	"compilerOptions": {
-        "esModuleInterop":true,
+		"esModuleInterop": true,
 		"rootDir": ".",
 		"outDir": "build",
 		"noImplicitOverride": true,
-		"lib": ["ES2021.String"],
+		"lib": [
+			"ES2021.String"
+		],
 		"experimentalDecorators": true
-
 	},
-	"include": ["src/**/*.ts", "test/**/*.ts"]
+	"include": [
+		"src/**/*.ts",
+		"test/**/*.ts"
+	]
 }
