@@ -2,6 +2,7 @@ import { Task, TaskServiceConnection, TaskServiceConnectionType } from "../../mo
 import { TaskServiceFile } from "./implementations/taskFile";
 import { ITaskConnection } from "./implementations/taskInterface";
 import { TaskServiceMongo } from "./implementations/taskMongo";
+import { TaskServicePostgreSQL } from "./implementations/taskPostgreSQL";
 
 export class TaskService  {
     
@@ -20,6 +21,9 @@ export class TaskService  {
                case TaskServiceConnectionType.MONGO:
                    this.instance = await TaskServiceMongo.create(conn.connectionString);
                    break;
+                case TaskServiceConnectionType.POSTGRESQL:
+                    this.instance = await TaskServicePostgreSQL.create(conn.connectionString);
+                    break;
                default:
                    throw new Error("Task Service ConnectionType not supported");
            }

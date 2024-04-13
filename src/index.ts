@@ -21,6 +21,7 @@ server.listen(config.port, async () => {
       `Server started on port ${config.port} with env set to ${config.environment}`,
     );
   } catch (error: any) {
+    console.log(error);
     process.exit(1);
   }
 });

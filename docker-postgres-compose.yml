@@ -1,0 +1,26 @@
+version: '3.1'
+
+services:
+
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: task_db
+    ports:
+      - "5432:5432"
+
+  backend-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      NODE_ENV: production
+      PORT: 5000
+      CONNECTION_TYPE: postgresql
+      CONNECTION_STRING: postgresql://postgres:postgres@localhost:5432/task_db
+    ports:
+      - "5000:5000"
+    depends_on:
+      - postgres

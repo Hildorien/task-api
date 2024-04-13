@@ -36,8 +36,10 @@ COPY --from=build /app/package.json /app/
 ENV NODE_ENV=production
 ENV PORT=5000
 
-ENV CONNECTION_TYPE=localfile
-ENV CONNECTION_STRING=/app/src/service/task/tasks.json
+ENV CONNECTION_TYPE = postgresql
+ENV CONNECTION_STRING = postgresql://postgres:postgres@localhost:5432/task_db
+#ENV CONNECTION_TYPE = localfile
+#ENV CONNECTION_STRING = /app/src/service/task/tasks.json
 
 EXPOSE 5000
 CMD node src/index.js

@@ -7,7 +7,8 @@ export type Task = {
 
 export enum TaskServiceConnectionType {
     LOCALFILE = "localfile",
-    MONGO = "mongo"
+    MONGO = "mongo",
+    POSTGRESQL = "postgresql"
 }
 
 export type TaskServiceConnection = {
