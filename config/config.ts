@@ -17,7 +17,7 @@ const connectionType = getEnv('CONNECTION_TYPE') as TaskServiceConnectionType;
 const connectionString = getEnv('CONNECTION_STRING');
 
 let config: Config = {
-    environment: environment,
+    environment: environment || "development",
     port: process.env.PORT ? Number(process.env.PORT) : 5000,
     connection: { connectionType: connectionType, connectionString: connectionString },
 }
